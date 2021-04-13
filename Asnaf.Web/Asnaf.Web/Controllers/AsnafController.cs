@@ -18,6 +18,7 @@ namespace Asnaf.Web.Controllers
         private readonly IAsnafBranchesApiClient _asnafBranchesApiClient;
         private readonly IAsnafConferenceApiClient _asnafConferenceApiClient;
         private readonly IAsnafProductsApiClient _asnafProductsApiClient;
+
         #endregion
 
         #region Constructors
@@ -38,12 +39,16 @@ namespace Asnaf.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> BranchIssuance()
         {
-            ViewBag.Provinces = (await _asnafBranchesApiClient.GetProvinceCityListAsync()).Response
-                .Select(c => new SelectListItem
-                {
-                    Text = c.ProvinceTitle,
-                    Value = c.ProvinceId.ToString()
-                }).AsEnumerable();
+            var provincesAndCities = (await _asnafBranchesApiClient.GetProvinceCityListAsync()).Response;
+
+            ViewBag.Provinces = provincesAndCities?
+                                    .Select(c => new SelectListItem
+                                    {
+                                        Text = c.ProvinceTitle,
+                                        Value = c.ProvinceId.ToString()
+                                    }).AsEnumerable()
+                                ?? new List<SelectListItem>().AsEnumerable();
+
 
             ViewBag.cities = new List<SelectListItem>().AsEnumerable();
 
@@ -791,7 +796,6 @@ namespace Asnaf.Web.Controllers
             return View(input);
 
             #endregion
-
         }
 
         #endregion

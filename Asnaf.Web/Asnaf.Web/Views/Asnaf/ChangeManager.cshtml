@@ -1,0 +1,82 @@
+﻿@model Asnaf.Web.Models.ChangeManagerRequestDto
+
+@{
+    ViewData["Title"] = "تغییر مسئول شعبه";
+}
+
+<h1>ChangeManager</h1>
+
+<h4>ChangeManagerRequestDto</h4>
+<hr />
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert @(ViewBag.Result == true ? "alert-success" : "alert-danger")">
+        @ViewBag.Message
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ChangeManager" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <input asp-for="CompanyId" class="form-control" />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchCode" class="control-label"></label>
+                <input asp-for="BranchCode" class="form-control" />
+                <span asp-validation-for="BranchCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerName" class="control-label"></label>
+                <input asp-for="ManagerName" class="form-control" />
+                <span asp-validation-for="ManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerNationalCode" class="control-label"></label>
+                <input asp-for="ManagerNationalCode" class="form-control" />
+                <span asp-validation-for="ManagerNationalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerMobile" class="control-label"></label>
+                <input asp-for="ManagerMobile" class="form-control" />
+                <span asp-validation-for="ManagerMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NationalCardCopy" class="control-label"></label>
+                <input asp-for="NationalCardCopy" class="form-control" />
+                <span asp-validation-for="NationalCardCopy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentificationCopy" class="control-label"></label>
+                <input asp-for="IdentificationCopy" class="form-control" />
+                <span asp-validation-for="IdentificationCopy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstablishForm" class="control-label"></label>
+                <input asp-for="EstablishForm" class="form-control" />
+                <span asp-validation-for="EstablishForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

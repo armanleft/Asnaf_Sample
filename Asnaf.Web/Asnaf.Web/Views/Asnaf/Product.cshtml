@@ -1,0 +1,121 @@
+﻿@model Asnaf.Web.Models.ProductRequestDto
+
+@{
+    ViewData["Title"] = "بارگذاری کالا";
+}
+
+<h1>Product</h1>
+
+<h4>ProductRequestDto</h4>
+<hr />
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert @(ViewBag.Result == true ? "alert-success" : "alert-danger")">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Product" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <input asp-for="CompanyId" class="form-control" />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IranCode" class="control-label"></label>
+                <input asp-for="IranCode" class="form-control" />
+                <span asp-validation-for="IranCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label"></label>
+                <input asp-for="UserEmail" class="form-control" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label"></label>
+                <input asp-for="RegistrationDate" class="form-control" />
+                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandOwnerdoc1" class="control-label"></label>
+                <input asp-for="BrandOwnerdoc1" class="form-control" />
+                <span asp-validation-for="BrandOwnerdoc1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandOwnerdoc2" class="control-label"></label>
+                <input asp-for="BrandOwnerdoc2" class="form-control" />
+                <span asp-validation-for="BrandOwnerdoc2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandOwnerdoc3" class="control-label"></label>
+                <input asp-for="BrandOwnerdoc3" class="form-control" />
+                <span asp-validation-for="BrandOwnerdoc3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessLicense" class="control-label"></label>
+                <input asp-for="BusinessLicense" class="form-control" />
+                <span asp-validation-for="BusinessLicense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthLicensing1" class="control-label"></label>
+                <input asp-for="HealthLicensing1" class="form-control" />
+                <span asp-validation-for="HealthLicensing1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthLicensing2" class="control-label"></label>
+                <input asp-for="HealthLicensing2" class="form-control" />
+                <span asp-validation-for="HealthLicensing2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthLicensing3" class="control-label"></label>
+                <input asp-for="HealthLicensing3" class="form-control" />
+                <span asp-validation-for="HealthLicensing3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostEstimation" class="control-label"></label>
+                <input asp-for="CostEstimation" class="form-control" />
+                <span asp-validation-for="CostEstimation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commitment" class="control-label"></label>
+                <input asp-for="Commitment" class="form-control" />
+                <span asp-validation-for="Commitment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Catalogue" class="control-label"></label>
+                <input asp-for="Catalogue" class="form-control" />
+                <span asp-validation-for="Catalogue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

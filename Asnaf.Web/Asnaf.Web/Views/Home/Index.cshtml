@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>وب‌سرویس اصناف</p>
+    <hr/>
+    <a href="@Url.Action(action: "BranchIssuance", controller: "Asnaf")">صدور شعبه</a>
+    <hr/>
+    <a href="@Url.Action(action: "ChangeManager", controller: "Asnaf")">تغییر مسئول شعبه</a>
+    <hr/>
+    <a href="@Url.Action(action: "ChangeAddress", controller: "Asnaf")">تغییر آدرس شعبه</a>
+    <hr/>
+    <a href="@Url.Action(action: "CancelBranch", controller: "Asnaf")">مجوز لغو شعبه</a>
+    <hr/>
+    <a href="@Url.Action(action: "ConferenceIssuance", controller: "Asnaf")">ثبت همایش</a>
+    <hr/>
+    <a href="@Url.Action(action: "Product", controller: "Asnaf")">بارگذاری کالا</a>
+    <hr/>
+</div>

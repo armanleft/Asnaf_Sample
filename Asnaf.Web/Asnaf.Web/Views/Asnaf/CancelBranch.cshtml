@@ -1,0 +1,56 @@
+﻿@model Asnaf.Web.Models.CancelBranchRequestDto
+
+@{
+    ViewData["Title"] = "مجوز لغو شعبه";
+}
+
+<h1>CancelBranch</h1>
+
+<h4>CancelBranchRequestDto</h4>
+<hr />
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert @(ViewBag.Result == true ? "alert-success" : "alert-danger")">
+        @ViewBag.Message
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CancelBranch" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <input asp-for="CompanyId" class="form-control" />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchCode" class="control-label"></label>
+                <input asp-for="BranchCode" class="form-control" />
+                <span asp-validation-for="BranchCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CancelForm" class="control-label"></label>
+                <input asp-for="CancelForm" class="form-control" />
+                <span asp-validation-for="CancelForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" asp-controller="Home">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

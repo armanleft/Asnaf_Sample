@@ -1,0 +1,18 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.40203.910",
+  "ExtendedData": {
+    "inputs": [
+      "https://easnaf.mimt.gov.ir/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/call_function.php&ctp_id=62&func_name=wsrvTypeWSDL&type_name=mim_conference_licensing&wsServiceTyps=soap"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, AsnafConference"
+    ],
+    "targetFramework": "net5.0",
+    "typeReuseMode": "None"
+  }
+}

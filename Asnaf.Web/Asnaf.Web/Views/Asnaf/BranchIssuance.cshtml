@@ -1,0 +1,134 @@
+﻿@model Asnaf.Web.Models.BranchIssuanceRequestDto
+
+@{
+    ViewData["Title"] = "صدور شعبه";
+    var provinces = (IEnumerable<SelectListItem>) ViewBag.Provinces;
+    var cities = (IEnumerable<SelectListItem>) ViewBag.cities;
+}
+
+<h1>BranchIssuance</h1>
+
+<h4>BranchIssuanceRequestDto</h4>
+<hr />
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert @(ViewBag.Result == true ? "alert-success" : "alert-danger")">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="BranchIssuance" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId" class="control-label"></label>
+                <input asp-for="CompanyId" class="form-control" />
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Province" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Province, provinces, "-- انتخاب کنید --", new { @class = "form-control", id = "province-DrpDn", onchange = "provinceChanged()" })
+                <span asp-validation-for="Province" class="text-danger"></span>
+
+            </div>
+            <div class="form-group" id="cities_DrpDn">
+                <label asp-for="City" class="control-label"></label>
+                @Html.DropDownListFor(model => model.City, cities, "--انتخاب کنید--", new {@class = "form-control" })
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerName" class="control-label"></label>
+                <input asp-for="ManagerName" class="form-control" />
+                <span asp-validation-for="ManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NationalId" class="control-label"></label>
+                <input asp-for="NationalId" class="form-control" />
+                <span asp-validation-for="NationalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NationalCardCopy" class="control-label"></label>
+                <input asp-for="NationalCardCopy" class="form-control" />
+                <span asp-validation-for="NationalCardCopy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentificationCopy" class="control-label"></label>
+                <input asp-for="IdentificationCopy" class="form-control" />
+                <span asp-validation-for="IdentificationCopy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ObligationForm" class="control-label"></label>
+                <input asp-for="ObligationForm" class="form-control" />
+                <span asp-validation-for="ObligationForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstablishForm" class="control-label"></label>
+                <input asp-for="EstablishForm" class="form-control" />
+                <span asp-validation-for="EstablishForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentalContract" class="control-label"></label>
+                <input asp-for="RentalContract" class="form-control" />
+                <span asp-validation-for="RentalContract" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstablishForm" class="control-label"></label>
+                <input asp-for="EstablishForm" class="form-control" />
+                <span asp-validation-for="OfficialNewspaper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function provinceChanged() {
+            var parentId = $('#province-DrpDn').val();
+
+            $.ajax({
+                type: 'Get',
+                url: '/asnaf/GetCities',
+                data: { parentId: parentId },
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (data) {
+                    $('#cities_DrpDn').html(data);
+                },
+                error: function () {
+                    alert('متاسفانه خطایی در سمت سرور اصناف هنگام بازیابی اطلاعات رخ داده است. لطفا مجددا اقدام کنید');
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure\Infrastructure.csproj", "{32C592FA-489C-41B5-86CA-9F3158A73B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asnaf.Web", "Asnaf.Web\Asnaf.Web\Asnaf.Web.csproj", "{56DC5A0E-8011-4D9A-ADDA-B932DF43C45A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32C592FA-489C-41B5-86CA-9F3158A73B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C592FA-489C-41B5-86CA-9F3158A73B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C592FA-489C-41B5-86CA-9F3158A73B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C592FA-489C-41B5-86CA-9F3158A73B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DC5A0E-8011-4D9A-ADDA-B932DF43C45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DC5A0E-8011-4D9A-ADDA-B932DF43C45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DC5A0E-8011-4D9A-ADDA-B932DF43C45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DC5A0E-8011-4D9A-ADDA-B932DF43C45A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {454FEFFE-22E3-43A2-B111-A85DC12A6451}
+	EndGlobalSection
+EndGlobal

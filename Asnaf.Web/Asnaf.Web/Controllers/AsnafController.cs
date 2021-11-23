@@ -18,6 +18,7 @@ namespace Asnaf.Web.Controllers
         private readonly IAsnafBranchesApiClient _asnafBranchesApiClient;
         private readonly IAsnafConferenceApiClient _asnafConferenceApiClient;
         private readonly IAsnafProductsApiClient _asnafProductsApiClient;
+        private readonly IMarketingApiClient _marketingApiClient;
 
         #endregion
 
@@ -25,11 +26,13 @@ namespace Asnaf.Web.Controllers
 
         public AsnafController(IAsnafBranchesApiClient asnafBranchesApiClient,
             IAsnafConferenceApiClient asnafConferenceApiClient,
-            IAsnafProductsApiClient asnafProductsApiClient)
+            IAsnafProductsApiClient asnafProductsApiClient,
+            IMarketingApiClient marketingApiClient)
         {
             _asnafBranchesApiClient = asnafBranchesApiClient;
             _asnafConferenceApiClient = asnafConferenceApiClient;
             _asnafProductsApiClient = asnafProductsApiClient;
+            _marketingApiClient = marketingApiClient;
         }
 
         #endregion
@@ -796,6 +799,17 @@ namespace Asnaf.Web.Controllers
             return View(input);
 
             #endregion
+        }
+
+        /// <summary>
+        /// ثبت بازاریاب در وب سرویس بازاریابی
+        /// </summary>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterAsync(MarketerRegisterModel request)
+        {
+            // return _marketingApiClient.RegisterAsync(request);
+            return null;
         }
 
         #endregion
